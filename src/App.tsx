@@ -1,8 +1,12 @@
+import { Logo } from "./components/logo";
+
 import "./styles/theme.css";
 import "./styles/global.css";
 
-function App() {
-  return <div>Hello world</div>;
-}
-
-export default App;
+export const App = () => {
+  return (
+    <div>
+      <Logo />
+    </div>
+  );
+};
