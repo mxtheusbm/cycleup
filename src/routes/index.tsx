@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes, useLocation } from "react-router";
 import { Home } from "../pages/home";
 import { useEffect } from "react";
+import { About } from "../pages/about";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -17,6 +18,7 @@ export const MyRoutes = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about-pomodoro" element={<About />} />
       </Routes>
       <ScrollToTop />
     </BrowserRouter>
