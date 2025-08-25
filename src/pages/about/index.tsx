@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { MainTemplate } from "../../templates/MainTemplates";
 import { Container } from "../../components/container";
 import { GenericHtml } from "../../components/generic-html";
 import { Heading } from "../../components/heading";
+import { RouterLink } from "../../components/router-link";
+import { MainTemplate } from "../../templates/main-template";
 
 export const About = () => {
   useEffect(() => {
@@ -43,7 +44,7 @@ export const About = () => {
           </ul>
 
           <h2>
-            Mas no <strong>Chronos Pomodoro</strong> tem um diferencial 🚀
+            Mas no <strong>Cycleup Pomodoro</strong> tem um diferencial 🚀
           </h2>
 
           <p>

@@ -4,6 +4,7 @@
   padding: 0.5rem;
   color: var(--text-default);
   outline: none;
+  min-width: 15rem;
 
   border: 2px solid transparent;
   border-bottom: 2px solid var(--primary);
@@ -24,10 +25,4 @@
 .input:disabled {
   border-bottom: 2px solid var(--disabled);
   color: var(--text-muted);
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
 }

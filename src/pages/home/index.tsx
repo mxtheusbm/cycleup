@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import { MainTemplate } from "../../templates/MainTemplates";
 import { Container } from "../../components/container";
 import { CountDown } from "../../components/count-down";
+import { MainTemplate } from "../../templates/main-template";
+import { MainForm } from "./components/main-form";
 
 export const Home = () => {
   useEffect(() => {
@@ -15,8 +16,7 @@ export const Home = () => {
       </Container>
 
       <Container>
-        {/* <MainForm /> */}
-        aa
+        <MainForm />
       </Container>
     </MainTemplate>
   );
