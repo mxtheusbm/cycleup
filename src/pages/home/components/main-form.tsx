@@ -8,6 +8,8 @@ import type { TaskModel } from "../../../models/TaskModel";
 import { Cycles } from "../../../components/cycles";
 import { useTaskContext } from "../../../contexts/task-context/useTaskContext";
 import { TaskActionTypes } from "../../../contexts/task-context/taskActions";
+import { showMessage } from "../../../adapters/showMessage";
+import { Tips } from "../../../components/tips";
 
 export const MainForm = () => {
   const { state, dispatch } = useTaskContext();
@@ -19,10 +21,16 @@ export const MainForm = () => {
 
   function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    showMessage.dismiss();
 
     if (taskNameInput.current === null) return;
 
     const taskName = taskNameInput.current.value.trim();
+
+    if (!taskName) {
+      showMessage.warn("Digite o nome da tarefa");
+      return;
+    }
 
     const newTask: TaskModel = {
       id: Date.now().toString(),
@@ -35,9 +43,13 @@ export const MainForm = () => {
     };
 
     dispatch({ type: TaskActionTypes.START_TASK, payload: newTask });
+
+    showMessage.success("Tarefa iniciada");
   }
 
   function handleInterruptTask() {
+    showMessage.dismiss();
+    showMessage.error("Tarefa interrompida!");
     dispatch({ type: TaskActionTypes.INTERRUPT_TASK });
   }
 
@@ -53,6 +65,10 @@ export const MainForm = () => {
           disabled={!!state.activeTask}
           defaultValue={lastTaskName}
         />
+      </div>
+
+      <div className="formRow">
+        <Tips />
       </div>
 
       {state.currentCycle > 0 && (
